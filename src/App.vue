@@ -1,9 +1,5 @@
 <template>
   <div id="app" class="smart-container">
-    <div class="Menubar">
-      <!-- <img src="" alt=""> -->
-      <Avatar icon="pi pi-search" size="large"/>
-    </div>
     <router-view/>
   </div>
 </template>

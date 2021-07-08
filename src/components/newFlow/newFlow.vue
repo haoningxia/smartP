@@ -1,4 +1,9 @@
 <template>
+<div>
+    <div class="Menubar">
+      <!-- <img src="" alt=""> -->
+      <Avatar icon="pi pi-search" size="large"/>
+    </div>
     <div class="edit-container">
         <div class="left-container">
                 <div class="component-wrap" id="config-Graph" :class="!componentShow?'component-shou':''">
@@ -29,6 +34,7 @@
                 </template> -->
         </div>
          <list-Config ref="mycompconfig" @compconfigevent='rightChange()'></list-Config>
+    </div>
     </div>
 </template>
 <script>

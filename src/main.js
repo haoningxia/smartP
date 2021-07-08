@@ -4,12 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store  from './vuex/store.js'
-// import ElementUI from 'element-ui';
+import ElementUI from 'element-ui';
 import axios from 'axios'
 import PrimeVue from 'primevue/config'
 import InputText from 'primevue/inputtext'
 import Avatar from 'primevue/avatar';
-
+import Button from 'primevue/button';
 // import 'primevue/resources/themes/saga-blue/theme.css ';
 import 'primevue/resources/primevue.min.css';
 // import 'primeicons/primeicons.css '
@@ -20,8 +20,9 @@ Vue.prototype.$axios = axios;
 
 Vue.component('InputText', InputText);
 Vue.component('Avatar', Avatar);
+Vue.component('Button', Button);
 
-// Vue.use(ElementUI, { size: 'small' });
+Vue.use(ElementUI);
 Vue.use(PrimeVue, {ripple: true});
 /* eslint-disable no-new */
 new Vue({

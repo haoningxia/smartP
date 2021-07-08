@@ -7,6 +7,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name : 'login',
+      component: () => import('../components/login.vue')
+    },
+    {
+      path: '/flow',
       name: 'flow',
       component: () => import('../components/newFlow/newFlow.vue')
     }

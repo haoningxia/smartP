@@ -5,26 +5,17 @@ import App from './App'
 import router from './router'
 import store  from './vuex/store.js'
 import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
-import PrimeVue from 'primevue/config'
-import InputText from 'primevue/inputtext'
-import Avatar from 'primevue/avatar';
-import Button from 'primevue/button';
-// import 'primevue/resources/themes/saga-blue/theme.css ';
-import 'primevue/resources/primevue.min.css';
-// import 'primeicons/primeicons.css '
 
 
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 
-Vue.component('InputText', InputText);
-Vue.component('Avatar', Avatar);
-Vue.component('Button', Button);
+import Constant from './vuex/data/API.js';
+Vue.prototype.Constant = Constant;
 
 Vue.use(ElementUI);
-Vue.use(PrimeVue, {ripple: true});
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

@@ -5,26 +5,17 @@
         <div class="login_from">
             <div class="opacity"></div>
             <div class="form_cont">
-                 <h3>Smart Plateform</h3>
-                <el-form  :model="loginFrom" ref="loginFrom" label-width="70px" style="width:81%;margin:15px auto;">
-                    <el-form-item label="用户名" prop="name" :rules="[
-                        { required: true, message: '请输入用户名', trigger: 'blur' },
-                    ]">
-                        <el-input v-model="loginFrom.name"></el-input>
-                    </el-form-item>
-                    <el-form-item label="密码"  prop="password" :rules="{
-                        required: true, message: '请输入密码', trigger: 'blur'
-                    }">
-                        <el-input v-model="loginFrom.password" autocomplete="off" type="password"></el-input>
-                    </el-form-item>
-                </el-form>
-                <el-button type="primary" style="margin-top:20px;width:100px;"  @click="onlogin('loginFrom')">登陆</el-button>
-              <!-- <Button label="登陆" /> -->
+                 <h3>test</h3>
+                 <form ref="from1">
+                       <input type="text" v-model="loginFrom.username" value="macro">
+
+                       <input type="text" v-model="loginFrom.password" value="123456">
+                 </form>
+                 <el-button type="primary"  @click="onlogin">提交</el-button>
             </div>
         </div>
     </div>
 </template>
-
 <script>
 
 export default {
@@ -32,28 +23,25 @@ export default {
   data() {
       return {
           loginFrom: {
-              name: '',
-              password: ''
+            username: 'macro',
+            password: '123456',
+            client_secret:'123456',
+            client_id:'client-app',
+            grant_type:'password'
           }
       }
   },
   mounted() {
   },
   methods: {
-      onlogin (loginFrom) {
-        this.$refs[loginFrom].validate((valid) => {
-          if (valid) {
-              sessionStorage.setItem('username',this.loginFrom.name);
-            this.$router.push({path:`/flow`})
-          } else {
-            alert('error submit!!');
-            return false;
-          }
-        });
-          
+      onlogin () {
+      let formData = new FormData();
+      for(var key in this.loginFrom){
+        formData.append(key,this.loginFrom[key]);
       }
-  }
-  
+    this.$store.dispatch('setToken',formData);
+    }
+}
 }
 </script>
 <style scoped>
@@ -88,6 +76,15 @@ export default {
         width: 88%;
         height: 88%;
         margin:25px;
+    }
+    .form_cont input{
+        width: 100%;
+        height: 30px;
+        border: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding:0 10px
     }
     .form_cont h3{
         font-size: 28px;

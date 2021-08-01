@@ -14,6 +14,11 @@ export default new Router({
       path: '/flow',
       name: 'flow',
       component: () => import('../components/newFlow/newFlow.vue')
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: () => import('../components/newFlow/index.vue')
     }
   ]
 })
